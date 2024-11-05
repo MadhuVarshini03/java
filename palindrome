@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+    public static boolean ispalin(String str) {
+        int[] charcount = new int[26]; // Array to store counts of each character (assuming only lowercase letters)
+        int oddcount = 0; // Counter for characters with odd frequencies
+        
+        // Loop through each character in the string
+        for (char ch : str.toCharArray()) {
+            if (Character.isLetter(ch)) { // Check if it's a letter
+                int index = Character.toLowerCase(ch) - 'a'; // Calculate index in charcount array
+                charcount[index]++;
+                
+                // Update oddcount based on the frequency of the current character
+                if (charcount[index] % 2 == 1) {
+                    oddcount++;
+                } else {
+                    oddcount--;
+                }
+            }
+        }
+        
+        // Return true if at most one character has an odd count
+        return oddcount <= 1;
+    }
+
+    public static void main(String[] args) {
+        String str = "malay"; // Corrected str declaration to String type
+        if (ispalin(str)) {
+            System.out.println("TRUE");
+        } else {
+            System.out.println("FALSE");
+        }
+    }
+
+
+}
