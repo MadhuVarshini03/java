@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+    public static void cse(int num) {
+        HashMap<Character, Integer> madhu = new HashMap<>();   
+        String str = Integer.toString(num); // Convert number to string
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i); // Use str.charAt(i) to get the character
+            madhu.put(ch, madhu.getOrDefault(ch, 0) + 1); // Count occurrences
+        }
+
+        System.out.println("Character frequency: " + madhu);
+
+        int c = 0;
+        for (int a : madhu.values()) {
+            if (a > 1) { // Count how many characters appear more than once
+                c++;
+            }
+        }
+        System.out.println("Count of characters appearing more than once: " + c);
+    }
+
+    public static void main(String[] args) {
+        int num = 12341234; // Input number
+        cse(num); // Call the method
+    }
+}
